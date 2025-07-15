@@ -36,7 +36,7 @@ def apply_operation(stack: List[float], operator: str) -> bool:
 
     Returns:
         bool: True if the operation was successful, False otherwise.
-    """
+    """f
     if len(stack) < 2:
         return False
     b = stack.pop()
@@ -53,6 +53,11 @@ def apply_operation(stack: List[float], operator: str) -> bool:
             stack.extend([a, b])
             return False
         stack.append(a / b)
+    else:
+        # Restore stack if invalid operator
+        print("Invalid operator")
+        stack.extend([a, b])
+        return False
     return True
 
 # --- API Endpoints ---
